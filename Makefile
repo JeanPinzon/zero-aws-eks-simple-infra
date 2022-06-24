@@ -5,7 +5,7 @@ SHELL := /bin/bash
 run: make-apply
 
 make-apply:
-	@export cd $(PROJECT_DIR) && make apply
+	cd $(PROJECT_DIR) && make apply
 
 summary:
 	@echo "zero-aws-eks-simple-infra:"

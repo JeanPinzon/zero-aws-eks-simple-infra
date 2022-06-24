@@ -9,10 +9,8 @@ KUBE_CONTEXT := $(PROJECT)
 apply: terraform-apply update-k8s-conf
 
 terraform-apply:
-	# Import the aws-auth configmap into the state if it doesn't yet exist. EKS creates this automatically
 	cd terraform && \
 	terraform init && \
-	(terraform state show module.kubernetes.kubernetes_config_map.aws_auth > /dev/null || (terraform plan && terraform refresh && terraform import module.kubernetes.kubernetes_config_map.aws_auth kube-system/aws-auth)) && \
 	terraform apply -auto-approve
 
 update-k8s-conf:

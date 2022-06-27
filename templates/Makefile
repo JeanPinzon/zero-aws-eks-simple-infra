@@ -6,7 +6,7 @@ KUBE_CONTEXT := $(PROJECT)
 
 .EXPORT_ALL_VARIABLES:
 
-apply: terraform-apply update-k8s-conf
+apply: terraform-apply update-k8s-conf after-apply-inscructions
 
 terraform-apply:
 	cd terraform && \
@@ -15,6 +15,9 @@ terraform-apply:
 
 update-k8s-conf:
 	aws eks --region $(AWS_DEFAULT_REGION) update-kubeconfig --name $(KUBE_CONTEXT) --alias $(KUBE_CONTEXT)
+
+after-apply-inscructions:
+	@echo 'please read the section "After zero apply" on the infraestructure project README.md to finish the setup'
 
 terraform-destroy:
 	cd terraform && \

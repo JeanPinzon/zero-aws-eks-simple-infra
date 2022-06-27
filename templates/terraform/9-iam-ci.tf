@@ -1,10 +1,9 @@
 resource "aws_iam_user" "ci" {
-  name = "ci"
-  path = "/ci/"
+  name = "<% .Name %>-ci"
 }
 
 resource "aws_iam_policy" "EKS_admin_policy" {
-  name = "EKS_admin_policy"
+  name = "<% .Name %>-EKS_admin_policy"
 
   policy = <<POLICY
 {

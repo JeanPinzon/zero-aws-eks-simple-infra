@@ -1,5 +1,5 @@
-resource "aws_ecr_repository" "<% .Name %>" {
-  name                 = "<% .Name %>"
+resource "aws_ecr_repository" "ecr" {
+  name                 = "<% .Name %>-ecr"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {

@@ -2,7 +2,7 @@ SHELL = /usr/bin/env bash
 PROJECT = <% .Name %>
 export AWS_DEFAULT_REGION = <% index .Params `region` %>
 export AWS_PAGER =
-KUBE_CONTEXT := $(PROJECT)
+KUBE_CONTEXT := $(PROJECT)-eks-cluster
 
 .EXPORT_ALL_VARIABLES:
 
